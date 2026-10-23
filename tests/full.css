@@ -1,0 +1,21 @@
+.theme {
+  --fluid-step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --fluid-step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --fluid-step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --fluid-step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --fluid-step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --fluid-step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --fluid-space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --fluid-space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --fluid-space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --fluid-space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --fluid-space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --fluid-space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --fluid-space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --fluid-space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --fluid-space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --fluid-space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --fluid-space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --fluid-space-s-xl: clamp(1.125rem, 0.212rem + 4.5652vw, 3.75rem);
+  --fluid-clamp-hero: clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+}

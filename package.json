@@ -1,0 +1,35 @@
+{
+  "name": "flutility-css",
+  "version": "0.2.0",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "node": ">=22.14"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "bin": {
+    "flutility-css": "./bin/flutility-css.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "test:update": "npm run build && node --test --test-update-snapshots tests/*.test.mjs"
+  },
+  "dependencies": {
+    "utopia-core": "^1.6.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
