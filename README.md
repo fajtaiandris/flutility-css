@@ -1,6 +1,6 @@
 # flutility-css
 
-Generate fluid typography and spacing CSS variables from a small JSON config.
+Generate fluid typography, fluid spacing and color CSS variables from a small JSON config.
 
 
 ## Use the CLI
@@ -18,6 +18,16 @@ Create `flutility.config.json` in your app:
     "maxTypeScale": 1.25,
     "positiveSteps": 3,
     "negativeSteps": 2
+  },
+  "colors": {
+    "surface": "#fff",
+    "text": "#171717",
+    "brand": { "primary": "#6246ea" }
+  },
+  "themes": {
+    "dark": {
+      "colors": { "surface": "#171717", "text": "#f5f5f5" }
+    }
   }
 }
 ```

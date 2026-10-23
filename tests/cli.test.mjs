@@ -90,6 +90,18 @@ test('accepts an explicit config path', async (t) => {
   assert.match(await readFile(join(cwd, 'styles/generated.css'), 'utf8'), /--flutility-step-3:/);
 });
 
+test('reads a colors-only config with a dark theme', async (t) => {
+  const cwd = await sampleProject(t);
+  const colors = {
+    colors: { surface: '#fff', brand: { primary: '#6246ea' } },
+    themes: { dark: { colors: { surface: '#111' } } },
+  };
+  await writeFile(join(cwd, 'flutility.config.json'), JSON.stringify(colors));
+  const result = run(cwd);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(await readFile(join(cwd, 'styles/generated.css'), 'utf8'), generateCss(colors));
+});
+
 test('shows help and rejects unknown options', async (t) => {
   const cwd = await sampleProject(t);
   const help = run(cwd, ['--help']);

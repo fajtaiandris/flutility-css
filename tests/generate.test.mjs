@@ -79,3 +79,36 @@ test("rejects empty and invalid width configurations", () => {
     /space\.positiveSteps/,
   );
 });
+
+test("generates named and grouped colors with partial theme overrides", (t) => {
+  const css = generateCss({
+    colors: {
+      surface: "#fff",
+      text: "#171717",
+      brand: { primary: "#6246ea", soft: "oklch(0.92 0.05 290)" },
+      neutral: { 100: "#f5f5f5" },
+    },
+    themes: {
+      dark: { colors: { surface: "#171717", text: "#f5f5f5", brand: { primary: "#9b8aff" } } },
+    },
+  });
+
+  assert.match(css, /--flutility-color-neutral-100: #f5f5f5;/);
+  assert.match(css, /\[data-theme="dark"\] \{\n  --flutility-color-surface:/);
+  assert.doesNotMatch(css.split('[data-theme="dark"]')[1], /--flutility-color-brand-soft/);
+  t.assert.fileSnapshot(css, fileURLToPath(new URL("./colors.css", import.meta.url)), {
+    serializers: [(value) => value],
+  });
+});
+
+test("rejects unsafe colors, duplicate names, and unknown theme overrides", () => {
+  assert.throws(() => generateCss({ colors: { primary: "#fff; color: red" } }), /colors\.primary/);
+  assert.throws(() => generateCss({ colors: { brand: { primary: { deep: "#fff" } } } }), /colors\.brand/);
+  assert.throws(() => generateCss({
+    colors: { "brand-primary": "#fff", brand: { primary: "#000" } },
+  }), /Color names collide at brand-primary/);
+  assert.throws(() => generateCss({
+    colors: { surface: "#fff" },
+    themes: { dark: { colors: { missing: "#000" } } },
+  }), /Theme dark overrides unknown color missing/);
+});

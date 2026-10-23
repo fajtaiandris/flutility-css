@@ -1,0 +1,13 @@
+:root {
+  --flutility-color-surface: #fff;
+  --flutility-color-text: #171717;
+  --flutility-color-brand-primary: #6246ea;
+  --flutility-color-brand-soft: oklch(0.92 0.05 290);
+  --flutility-color-neutral-100: #f5f5f5;
+}
+
+[data-theme="dark"] {
+  --flutility-color-surface: #171717;
+  --flutility-color-text: #f5f5f5;
+  --flutility-color-brand-primary: #9b8aff;
+}
